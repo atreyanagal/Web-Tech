@@ -7,6 +7,8 @@ const Userform = () => {
   const [phone, setPhone] = useState("");
   const [error, setError] = useState(null);
   const [review,setReview]=useState('');
+  const [err,setErr]= useState(false);
+  const[pasErr,setPassErr] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = { name, pass, phone ,review};
@@ -37,8 +39,7 @@ const Userform = () => {
       <h2>Add a new User</h2>
       <form className="create" onSubmit={handleSubmit}>
         <div className="user-box">
-          <input
-            placeholder="Username"
+          <input required id="username_userform"
             type="text"
             onChange={(e) => setName(e.target.value)}
             value={name}
@@ -46,22 +47,31 @@ const Userform = () => {
           <label>User Name</label>
         </div>
         <div class="user-box">
-          <input
+          <input required id="password_userform"
             type="password"
-            placeholder="Password"
-            onChange={(e) => setPass(e.target.value)}
+            onChange={(e) => {setPass(e.target.value)
+              e.target.value.length <8 ? setPassErr(true):setPassErr(false)
+              }}
             value={pass}
+
           />
+          {
+            pasErr?<p>Password Must be more than 8 digits</p>:" "
+          }
           <label>Password</label>
         </div>
 
         <div class="user-box">
-          <input
+          <input required id="mobileno_userform"
             type="number"
-            placeholder="Phone Number"
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => {setPhone(e.target.value)
+              e.target.value.length !=10 ?setErr(true):setErr(false);}}
             value={phone}
+
           />
+          {
+            err?<span>Phone Number should be of 10 digits</span>:" "
+          }
           <label>Phone number</label>
         </div>
         <div class="user-box">
@@ -69,7 +79,7 @@ const Userform = () => {
             value={review} placeholder="add review"></textarea>
           <label>Review</label>
         </div>
-        <button className="submit" type="submit">
+        <button id="signin_userform" disabled={err || pasErr} className="submit" type="submit">
           Add user
         </button>
       </form>

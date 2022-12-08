@@ -66,8 +66,8 @@ const Addreview = (props) => {
       <h2 className="title">Feedback</h2>
 
       <div class="input-container ic1">
-        <input
-          id="firstname"
+        <input required
+          id="name_addreview"
           class="input"
           type="text"
           onChange={(e) => setName(e.target.value)}
@@ -80,8 +80,8 @@ const Addreview = (props) => {
         </label>
       </div>
       <div class="input-container ic1">
-        <input
-          id="firstname"
+        <input required 
+          id="place_addreview"
           class="input"
           type="text"
           onChange={(e) => setPlace(e.target.value)}
@@ -118,14 +118,14 @@ const Addreview = (props) => {
       </div>
 
       <div className="input-container ic1">
-        <textarea
+        <textarea required
           onChange={(e) => setReview(e.target.value)}
-          className="input"
+          className="place_addreview"
           placeholder="Please enter your feedback about this place"
         />
       </div>
 
-      <button onClick={handleSubmit} className="submit">
+      <button id="signin_addreview" onClick={handleSubmit} className="submit">
         Submit
       </button>
     </div>

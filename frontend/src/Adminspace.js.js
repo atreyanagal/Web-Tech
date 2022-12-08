@@ -25,13 +25,13 @@ const Addplace = () => {
       <h1>Add a new place</h1>
       <form onSubmit={handleSubmit}>
         <label>Entre username of Admin</label>
-        <input
+        <input required id="username_Adminspace"
           type="text"
           onChange={(e) => setUsername(e.target.value)}
           value={username}
         ></input>
         <label>Enter Admin password</label>
-        <input
+        <input required id="password_Adminspace"
           type="text"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
@@ -64,7 +64,7 @@ const Addplace = () => {
           onChange={(e) => setReview(e.target.value)}
           value={review}
         ></textarea> */}
-        <button type="submit">submit</button>
+        <button id="submit_Adminspace" type="submit">submit</button>
       </form>
     </div>
   );

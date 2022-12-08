@@ -37,8 +37,8 @@ const Searchbar=()=>{
     <div>
       <form onSubmit={handleSubmit}>
         <label>Enter place be searched</label>
-        <input type="text" placeholder="place to search" onChange={(e)=>setSearch(e.target.value)} value={search}></input>
-        <button type="submit">submit</button>
+        <input id="search_searchbar" type="text" placeholder="place to search" onChange={(e)=>setSearch(e.target.value)} value={search}></input>
+        <button id="submit_searchbar" type="submit">submit</button>
       </form>
       {/* <Card places={place}/> */}
       {
